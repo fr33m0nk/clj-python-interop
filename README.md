@@ -1,7 +1,8 @@
 ## Demo of inter-op with Python package from Clojure (JVM)
+  - The interop is done using the [libpython-clj](https://github.com/clj-python/libpython-clj)_library
+  - This demo uses excellent scraping package for Python [`Trafilatura`]() 
 
-This demo uses excellent scraping package for Python [`Trafilatura`]() 
-
+## Steps
 - Install Trafilatura package on machine
   - `pip install trafilatura`
   - [instructions](https://trafilatura.readthedocs.io/en/latest/installation.html)
@@ -133,5 +134,32 @@ This demo uses excellent scraping package for Python [`Trafilatura`]()
   WEROCK Technologies GmbH presents the Rocksmart RSC622, a powerful addition to its Rocksmart RSC600 industrial panel PC family. The latest model boasts a 21.5-inch display and complements the existing RSC610, RSC612 and RSC616 models.
   The 9th IT-TRANS is scheduled for 14th to 16th May 2024 at Messe Karlsruhe. IT-TRANS 2024 will deliver an international conference and exhibition. The strong focus will be on IT solutions for intelligent public transport.
   ROB the voice - Mexicoma - Nights of desire - the new single 2024 - preorder now - out on 02/27/24 ROB the voice (Robert Adrian Steiner), is an international singer/songwriter and producer based in Bavaria/Germany."]
+
+```
+- or thru `sitemaps`
+```clojure
+
+(require-python '[trafilatura.sitemaps :as sitemaps])
+
+(-> (sitemaps/sitemap_search "https://www.theguardian.com/")
+    (py/->jvm))
+
+;; Output
+;;=>
+
+["https://www.theguardian.com/world/video/2024/mar/22/the-moment-new-south-wales-banned-gay-conversion-practices-video"
+ "https://www.theguardian.com/technology/video/2024/mar/21/us-government-sues-apple-iphone"
+ "https://www.theguardian.com/global/video/2024/mar/21/hot-air-balloon-crashes-next-to-a-motorway-in-minnesota-video"
+ "https://www.theguardian.com/society/video/2024/mar/21/neuralink-patient-plays-chess-using-brain-chip-video"
+ "https://www.theguardian.com/sport/video/2024/mar/21/cat-interrupts-venus-williams-match-at-miami-open-video"
+ "https://www.theguardian.com/guardian-live-events/video/2024/mar/21/mary-beard-on-the-emperors-of-rome"
+ "https://www.theguardian.com/world/video/2024/mar/21/explosions-in-kyiv-as-capital-comes-under-renewed-russian-bombardment-video"
+ "https://www.theguardian.com/sport/video/2024/mar/21/berrettini-almost-collapses-on-court-as-murray-fights-back-to-win-at-miami-open-video"
+ "https://www.theguardian.com/australia-news/video/2024/mar/21/greens-mp-jenny-leong-kicked-out-of-nsw-question-time-after-clash-with-speaker-video"
+ "https://www.theguardian.com/society/video/2024/mar/21/vapes-to-be-available-only-via-prescription-as-therapeutic-pathway-under-new-bill-video"
+ "https://www.theguardian.com/world/video/2024/mar/21/australia-joins-drone-coalition-agreement-to-aid-in-ukraine-war-effort-video"
+ "https://www.theguardian.com/australia-news/video/2024/mar/21/workers-in-northern-territory-town-take-boat-to-work-as-borroloola-faces-record-floods-video"
+ "https://www.theguardian.com/us-news/video/2024/mar/20/arizona-senator-is-first-state-lawmaker-to-speak-about-fight-to-get-an-abortion-video"
+ "https://www.theguardian.com/world/video/2024/mar/20/south-sudan-closes-schools-in-preparation-for-45c-heatwave-video"]
 
 ```
