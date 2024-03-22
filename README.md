@@ -1,5 +1,5 @@
 ## Demo of inter-op with Python package from Clojure (JVM)
-  - The interop is done using the [libpython-clj](https://github.com/clj-python/libpython-clj)_library
+  - The interop is done using the [libpython-clj](https://github.com/clj-python/libpython-clj) library
   - This demo uses excellent scraping package for Python [`Trafilatura`]() 
 
 ## Steps
