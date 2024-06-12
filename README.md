@@ -1,6 +1,7 @@
 # Demo of inter-op with Python package from Clojure (JVM)
   - The interop is done using the [libpython-clj](https://github.com/clj-python/libpython-clj) library
-  - This demo uses excellent scraping package for Python [`Trafilatura`]() 
+  - This demo uses excellent scraping package for Python `Trafilatura`
+  - Watch [this brilliant walkthrough](https://www.youtube.com/watch?v=ajDiGS73i2o&t=414s) by Chris Neurnberger
 
 ## The demo follows replicates Trafilatura usage [instructions](https://trafilatura.readthedocs.io/en/latest/usage-python.html)
 ### Steps
